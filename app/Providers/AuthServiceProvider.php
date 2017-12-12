@@ -1,5 +1,5 @@
 <?php
-
+//对授权策略进行注册
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+         \App\Models\User::class  => \App\Policies\UserPolicy::class,   //为用户模型User指定授权策略 UserPolicy,使之关联
     ];
 
     /**
