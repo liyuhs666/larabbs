@@ -18,12 +18,13 @@ class UsersController extends Controller
     //个人页面
     public function show(User $user)
     {
+       $this->authorize('update', $user);
 	   return view('users.show',compact('user'));
     }
 
     public function edit(User $user)
     {
-        $this->authorize('update', $user);
+        $this->authorize('edit', $user);
     	return view('users.edit',compact('user'));
     }
 
